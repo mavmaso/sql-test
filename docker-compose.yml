@@ -1,0 +1,17 @@
+version: '3.5'
+
+volumes:
+  mysql:
+
+services:
+  db:
+    container_name: sql-test
+    image: mysql
+    volumes:
+      - mysql:/var/lib/mysql
+      - .:/home
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_DATABASE: "teste"
+    ports:
+      - "3306:3306"
